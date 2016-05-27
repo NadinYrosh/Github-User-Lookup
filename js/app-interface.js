@@ -1,17 +1,14 @@
 var apiKey = require('./../.env').apiKey;
 var Repo = require('./../js/github.js').Repo;
 
-console.log('test!!');
 
-$(document).ready(function(event) {
- event.preventDefault;
-
- var newUser = new Repo();
-   $("#formId").submit(function() {
-
+$(document).ready(function() {
+  var newUser = new Repo();
+  $("#formId").submit(function(event) {
+    console.log('test');
+    event.preventDefault();
     var userName = $('#userInput').val();
     $('#userInput').val('');
-
     newUser.getRepos(userName);
     $('.showUserName').text(userName);
   });

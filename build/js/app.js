@@ -7,10 +7,11 @@ var apiKey = require('./../.env').apiKey;
 exports.Repo = function(){
 };
 
-exports.Repo.prototype.getRepos = function(userName){
+exports.Repo.prototype.getRepos = function(userName,public_repos){
   ///user information
-  $.get('https://api.github.com/users/nadinyrosh?access_token=' + apiKey).then(function(response){
-    // $('.showUserName').text("Username: " + response.login);
+  $.get('https://api.github.com/users/' + userName + '?access_token=' + apiKey).then(function(response){
+    $('.showUserName').text("Username: " + response.login);
+    $('.showRepos').text("Here is how many repos: " + response.public_repos);
     console.log(response);
   }).fail(function(error){
     console.log(error.responseJSON.message);
@@ -21,17 +22,14 @@ exports.Repo.prototype.getRepos = function(userName){
 var apiKey = require('./../.env').apiKey;
 var Repo = require('./../js/github.js').Repo;
 
-console.log('test!!');
 
-$(document).ready(function(event) {
- event.preventDefault;
-
- var newUser = new Repo();
-   $("#formId").submit(function() {
-
+$(document).ready(function() {
+  var newUser = new Repo();
+  $("#formId").submit(function(event) {
+    console.log('test');
+    event.preventDefault();
     var userName = $('#userInput').val();
     $('#userInput').val('');
-
     newUser.getRepos(userName);
     $('.showUserName').text(userName);
   });
