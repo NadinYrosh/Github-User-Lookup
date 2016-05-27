@@ -1,3 +1,3 @@
 $(document).ready(function() {
-  $("#time").text(moment());
+  $("#").text(moment());
 });
