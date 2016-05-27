@@ -9,6 +9,5 @@ $(document).ready(function() {
     var userName = $('#userInput').val();
     $('#userInput').val('');
     newUser.getRepos(userName);
-    $('.showUserName').text(userName);
   });
 });
