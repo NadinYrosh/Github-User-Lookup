@@ -27,6 +27,13 @@ $ gulp build
 ```
 $ gulp serve
 ```
+To properly utilize this site you will need to use a github API key, and create a file called ".env" in the top level of the directory, with this:
+
+exports.apiKey = "API-KEY-GOES-HERE";
+
+Know this is for security.
+
+You can get a github API key from the "Settings" page of your account, and click "Personal access tokens". With access to a key, you can run this site by typing "gulp serve" at the top of the directory in bash.
 
 ## Support and contact details
 
